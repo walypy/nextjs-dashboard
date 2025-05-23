@@ -19,7 +19,7 @@ export async function fetchRevenue() {
 
     const data = await sql<Revenue>`SELECT * FROM revenue`;
 
-    console.log('Data fetch completed after 3 seconds.');
+    console.log('Data fetch completed after 2 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -40,9 +40,8 @@ export async function fetchLatestInvoices() {
       ORDER BY invoices.date DESC
       LIMIT 5`;
 
-    console.log('Data fetch completed after 4 seconds.');
+    console.log('Data fetch completed after 3 seconds.');
 
-    data.rows.forEach( (invoice) => { console.log("name: " + invoice.name) })
 
     const latestInvoices = data.rows.map((invoice) => ({
       ...invoice,
